@@ -16,13 +16,17 @@
 </head>
 <body>
 	<h1 class="display-1">Create Account</h1>
-	<form action="logincon" method="post" style="padding: 5%;">
+	<form action="create" method="post" style="padding: 5%;">
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="userName"
 				placeholder="name@example.com" name="userName"> <label for="floatingInput">User Name</label>
 		</div>
 		<div class="form-floating">
-			<input type="text" class="form-control" id="pass"
+			<input type="text" class="form-control" id="bal"
+				placeholder="text" name="pass"> <label for="floatingPassword">Enter balance </label>
+		</div>
+		<div class="form-floating">
+			<input type="password" class="form-control" id="pass"
 				placeholder="Password" name="pass"> <label for="floatingPassword">Create Password</label>
 		</div>
 		<br>

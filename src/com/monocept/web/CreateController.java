@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/createcon")
+@WebServlet("/create")
 public class CreateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,6 +27,7 @@ public class CreateController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName=request.getParameter("userName");
 		String pass=request.getParameter("pass");
+		double bal=Double.valueOf(request.getParameter("bal"));
 		System.out.println(userName+" in create account "+pass);
 	}
 

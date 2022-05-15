@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LoginController
  */
-@WebServlet("/logincon")
+@WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,6 +30,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  
 		String userName=request.getParameter("userName");
+	
 		String pass=request.getParameter("pass");
 		System.out.println(userName+"  "+pass);
 		

@@ -26,16 +26,16 @@
 			</a>
 			
 			<a style="text-align:margin-left; color: white;" >hello user</a>
-			<a href="logoutcon" class="btn btn-primary" role="button" name="txn">Logout</a>
+			<a href="logout" class="btn btn-primary" role="button" name="txn">Logout</a>
 		</div>
 	</nav>
 <div style="padding: 4%">
 	<h1 class="display-1">Welcome to DashBoard</h1>
-	<a href="txncon" class="btn btn-primary" role="button" name="txn">Transection</a>
+	<a href="transection" class="btn btn-primary" role="button" name="txn">Transection</a>
 	<br>
 
 	<br>
-	<a href="passcon" class="btn btn-primary" role="button" name="passbook">PassBook</a>
+	<a href="passbook" class="btn btn-primary" role="button" name="passbook">PassBook</a>
 	
 	</div>
 
