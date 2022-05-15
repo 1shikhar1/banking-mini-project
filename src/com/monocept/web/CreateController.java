@@ -28,7 +28,7 @@ public class CreateController extends HttpServlet {
 		String userName=request.getParameter("userName");
 		String pass=request.getParameter("pass");
 		double bal=Double.valueOf(request.getParameter("bal"));
-		System.out.println(userName+" in create account "+pass);
+		System.out.println(userName+" in create account "+pass +" balance "+bal);
 	}
 
 }

@@ -23,7 +23,7 @@
 		</div>
 		<div class="form-floating">
 			<input type="text" class="form-control" id="bal"
-				placeholder="text" name="pass"> <label for="floatingPassword">Enter balance </label>
+				placeholder="text" name="bal"> <label for="floatingPassword">Enter balance </label>
 		</div>
 		<div class="form-floating">
 			<input type="password" class="form-control" id="pass"
