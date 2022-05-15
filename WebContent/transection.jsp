@@ -12,41 +12,46 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 
-<title>Banking App</title>
+<title>login</title>
 </head>
-<body >
-
-  <style>
-    body {
-      background-image: url('https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: 100% 100%;
-      
-      
-    }
-    </style>
+<body>
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
 				src="https://cdn.cdnlogo.com/logos/k/86/key-bank.svg" alt=""
 				width="30" height="24" class="d-inline-block align-text-top">
 				Banking App
-			</a>
+			</a> <a style="text-align: margin-left; color: white;"></a>
+			<a style="color: white;"> hello,  user</a>>
+			<a href="logoutcon" class="btn btn-primary" role="button" name="txn">Logout</a>
 		</div>
 	</nav>
-	<div>
-	<h1 class="display-1">Welcome to KeyBank</h1>
-	</div>
-	<div style="padding: 20%;">
-	
-	<a href="logincon" class="btn btn-primary" role="button" name ="login">Login</a>
-	<a href="createcon" class="btn btn-primary" role="button" name ="login">Create Account</a>
-	</div>
+	<h3 class="display-1">Transection Portal</h3>
+	<form action="txncon" method="post" style="padding: 5%;">
+		<div class="form-floating mb-3">
+			<input type="text" class="form-control" id="amount"
+				placeholder="name@example.com" name="amount"> <label
+				for="floatingInput">Enter Amount</label> <br> <input
+				type="checkbox" name="myCheckbox" value="deposite"
+				onclick="selectOnlyThis(this)" /> Deposite <br> <input
+				type="checkbox" name="myCheckbox" value="withdraw"
+				onclick="selectOnlyThis(this)" /> Withdraw
 
-	<!-- Optional JavaScript; choose one of the two! -->
+		</div>
 
-	<!-- Option 1: Bootstrap Bundle with Popper -->
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		function selectOnlyThis(id) {
+			var myCheckbox = document.getElementsByName("myCheckbox");
+			Array.prototype.forEach.call(myCheckbox, function(el) {
+				el.checked = false;
+			});
+			id.checked = true;
+		}
+	</script>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
