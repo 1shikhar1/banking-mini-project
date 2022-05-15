@@ -8,10 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LoginController
- */
+import com.monocept.model.Account;
+import com.monocept.service.AccountService;
+
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,11 +31,24 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  
 		String userName=request.getParameter("userName");
-	
 		String pass=request.getParameter("pass");
-		System.out.println(userName+"  "+pass);
+		
+		AccountService service = AccountService.getInstance();
+		
+		Account account = service.findAccount(userName);
+		
+		System.out.println("Pass: "+pass);
+		System.out.println("Pass2: "+account.getPassword());
 		
 		
+		if (account!=null && account.getPassword().equals(pass)) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", userName);
+			response.sendRedirect("dashboard");
+		} else {
+			RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+			view.forward(request, response);
+		}
 	}
 
 }

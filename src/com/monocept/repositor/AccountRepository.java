@@ -46,10 +46,6 @@ public class AccountRepository {
 		return conn;
 	}
 	
-	public Account getAccount(String name) {
-		
-		return null;
-	}
 	
 	public void addAccount(Account account) throws SQLException {
 	    Connection conn = null;
@@ -105,4 +101,28 @@ public class AccountRepository {
 	    }
 	    return transactions;
 	}
+	
+	public Account findAccount(String name) throws SQLException {
+		Account account = null;
+	    Connection conn = null;
+	    conn = connectDB();
+	    
+	    String sql = "select * from accounts where name=\""+name+"\"";
+	    
+	    System.out.println(sql);
+	    PreparedStatement p = conn.prepareStatement(sql);
+	    ResultSet rs = p.executeQuery();
+	    
+	    while (rs.next()) {
+    	
+            String name2 = rs.getString("name");
+            double amount = rs.getDouble("balance");
+            String type = rs.getString("password");
+            
+            account = new Account(name2,amount,type);
+	    }
+	    
+	    return account;
+	}
+	
 }

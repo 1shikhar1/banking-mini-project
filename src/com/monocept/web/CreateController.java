@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.monocept.model.Account;
+import com.monocept.service.AccountService;
+
 
 @WebServlet("/create")
 public class CreateController extends HttpServlet {
@@ -18,17 +21,23 @@ public class CreateController extends HttpServlet {
 
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher view= request.getRequestDispatcher("create.jsp");
 		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		AccountService service = AccountService.getInstance();
+		
 		String userName=request.getParameter("userName");
-		String pass=request.getParameter("pass");
 		double bal=Double.valueOf(request.getParameter("bal"));
-		System.out.println(userName+" in create account "+pass +" balance "+bal);
+		String pass=request.getParameter("pass");
+		
+		Account account = new Account(userName,bal,pass);
+		
+		service.addAccount(account);
+		
+		response.sendRedirect("home");
 	}
 
 }

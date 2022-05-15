@@ -10,15 +10,16 @@ import com.monocept.service.AccountService;
 
 public class test {
 	public static void main(String args[]) throws SQLException {
-		AccountRepository repo = AccountRepository.getInstance();
+		
 		AccountService s = AccountService.getInstance(); 
 		
-		Account account = new Account("Rohan",5000,"abcdef");
-
-		s.addTransaction(new Transaction("Rohan",208000,"Deposite",Timestamp.from(Instant.now())));
-
 		
-		for(Transaction t: repo.getTransactions(account))
-			System.out.println("Name: "+t.getName()+"\t amount: "+t.getAmount()+"\t type: "+t.getType()+"\t time: "+t.getTime());
+		System.out.println(s.findAccount("Rohan"));
+
+//		s.addTransaction(new Transaction("Rohan",208000,"Deposite",Timestamp.from(Instant.now())));
+
+//		s.addAccount(account);
+//		for(Transaction t: repo.getTransactions(account))
+//			System.out.println("Name: "+t.getName()+"\t amount: "+t.getAmount()+"\t type: "+t.getType()+"\t time: "+t.getTime());
 	}
 }

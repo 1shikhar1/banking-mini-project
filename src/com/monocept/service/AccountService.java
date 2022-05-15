@@ -20,11 +20,6 @@ public class AccountService {
 		return instance;
 	}
 
-	public Account getAccount(String name) {
-		AccountRepository repo = AccountRepository.getInstance();
-		
-		return repo.getAccount(name);
-	}
 	
 	public void addAccount(Account account) {
 		AccountRepository repo = AccountRepository.getInstance();
@@ -51,6 +46,17 @@ public class AccountService {
 		
 		try {
 			return repo.getTransactions(account);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public Account findAccount(String name) {
+		AccountRepository repo = AccountRepository.getInstance();
+		
+		try {
+			return repo.findAccount(name);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
