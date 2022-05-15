@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
 		
 		if (account!=null && account.getPassword().equals(pass)) {
 			HttpSession session = request.getSession();
-			session.setAttribute("user", userName);
+			session.setAttribute("user", account);
 			response.sendRedirect("dashboard");
 		} else {
 			RequestDispatcher view = request.getRequestDispatcher("login.jsp");
