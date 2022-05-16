@@ -97,11 +97,11 @@
 </head>
 <body>
 	<h1 class="display-1">Create Account</h1>
-<<<<<<< HEAD
+
 	<form  action="create" method="post" style="padding: 5%;">
-=======
+
 	<form onsubmit="return validateForm()" action="create" method="post" style="padding: 5%;">
->>>>>>> 45ffb7a701a1b31132969f0b4b206378e37e2646
+
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="userName"
 				placeholder="name@example.com" name="userName"> <label for="floatingInput">User Name</label>
@@ -120,10 +120,7 @@
 		<br>
 		 <input type="submit" value="Submit">
 	</form>
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 45ffb7a701a1b31132969f0b4b206378e37e2646
 </body>
 </html>
