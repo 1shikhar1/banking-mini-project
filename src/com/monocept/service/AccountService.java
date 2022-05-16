@@ -41,11 +41,11 @@ public class AccountService {
 		}
 	}
 	
-	public List<Transaction> getTransactions(Account account){
+	public List<Transaction> getTransactions(String name){
 		AccountRepository repo = AccountRepository.getInstance();
 		
 		try {
-			return repo.getTransactions(account);
+			return repo.getTransactions(name);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

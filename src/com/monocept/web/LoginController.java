@@ -40,17 +40,14 @@ public class LoginController extends HttpServlet {
 		AccountService service = AccountService.getInstance();
 		
 		Account account = service.findAccount(userName);
-		
-		System.out.println("Pass: "+pass);
-		System.out.println("Pass2: "+account.getPassword());
-		
-		
+				
 		
 		if (account!=null && account.getPassword().equals(hashedPassword)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", account);
 			response.sendRedirect("dashboard");
 		} else {
+			
 			RequestDispatcher view = request.getRequestDispatcher("login.jsp");
 			view.forward(request, response);
 		}

@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"
     import="java.util.*"
     import="com.monocept.model.*"
+    import="com.monocept.service.*"
     %>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<h2><a href="home">Home</a></h2>
+		<h2><a href="dashboard">Dashboard</a></h2>
+		
+		<%
+			Account account = (Account)request.getAttribute("user");
+		
+			out.println("<h2>Available balance: "+account.getBalance()+"</h2>");
+		%>
 
 		<table class="table table-striped">
 		<tr>
@@ -21,7 +28,9 @@
 		</tr>
 		
 		<%
-			List<Transaction> transactions = (List)request.getAttribute("transactions");
+			AccountService service = AccountService.getInstance();
+			
+			List<Transaction> transactions = service.getTransactions(account.getName());
 		
 			for(Transaction trn: transactions){
 				out.println("<tr><td>"+trn.getName()+"</td> <td>"+trn.getAmount()+"</td> <td>"+trn.getType()+"</td> <td>"+trn.getTime()+"</td> </tr> ");

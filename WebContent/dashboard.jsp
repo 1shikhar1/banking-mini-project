@@ -31,6 +31,7 @@
 	</nav>
 <div style="padding: 4%">
 	<h1 class="display-1">Welcome to DashBoard</h1>
+
 	<a href="transaction" class="btn btn-primary" role="button" name="txn">Transaction</a>
 	<br>
 

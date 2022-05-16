@@ -79,13 +79,13 @@ public class AccountRepository {
 		conn.close();
 	}
 	
-	public List<Transaction> getTransactions(Account account) throws SQLException{
+	public List<Transaction> getTransactions(String userName) throws SQLException{
 		List<Transaction> transactions = new ArrayList<>();
 		
 	    Connection conn = null;
 	    conn = connectDB();
 	    
-	    String sql = "select * from transactions where name=\""+account.getName()+"\"";
+	    String sql = "select * from transactions where name=\""+userName+"\"";
 	    System.out.println(sql);
 	    PreparedStatement p = conn.prepareStatement(sql);
 	    ResultSet rs = p.executeQuery();
