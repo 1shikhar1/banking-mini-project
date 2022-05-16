@@ -1,4 +1,5 @@
 <!doctype html>
+<%@page import="com.monocept.model.Account"%>
 <html lang="en">
 <head>
 <!-- Required meta tags -->
@@ -22,11 +23,11 @@
 				width="30" height="24" class="d-inline-block align-text-top">
 				Banking App
 			</a> <a style="text-align: margin-left; color: white;"></a>
-			<a style="color: white;"> hello,  user</a>>
+			<a style="text-align:margin-left; color: white;" ><h3>Hello <% Account user = (Account)session.getAttribute("user"); out.println(user.getName());%></h3></a>
 			<a href="logoutcon" class="btn btn-primary" role="button" name="txn">Logout</a>
 		</div>
 	</nav>
-	<h3 class="display-1">Transection Portal</h3>
+	<h3 class="display-1">Transaction Portal</h3>
 	<form action="transaction" method="post" style="padding: 5%;">
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="amount"

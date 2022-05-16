@@ -1,4 +1,5 @@
 <!doctype html>
+<%@page import="com.monocept.model.Account"%>
 <html lang="en">
 <head>
 <!-- Required meta tags -->
@@ -25,7 +26,7 @@
 				Banking App
 			</a>
 			
-			<a style="text-align:margin-left; color: white;" >hello user</a>
+			<a style="text-align:margin-left; color: white;" ><h3>Hello <% Account user = (Account)session.getAttribute("user"); out.println(user.getName());%></h3></a>
 			<a href="logout" class="btn btn-primary" role="button" name="txn">Logout</a>
 		</div>
 	</nav>
