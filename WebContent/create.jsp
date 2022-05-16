@@ -44,7 +44,7 @@
 
 		var name = $("#userName");
 
-		rollNo.keyup(function() {
+		name.keyup(function() {
 			var nameValue = name.val();
 			$.ajax({
 				type : 'POST',
@@ -59,7 +59,7 @@
 					} else {
 
 						$("#nameError").html("");
-						if (rollNoValue >= 100)
+						if (nameValue >= 100)
 							$("#tick").html("&#10004");
 						else
 							$("#tick").html("");
@@ -98,10 +98,7 @@
 <body>
 	<h1 class="display-1">Create Account</h1>
 
-	<form  action="create" method="post" style="padding: 5%;">
-
 	<form onsubmit="return validateForm()" action="create" method="post" style="padding: 5%;">
-
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="userName"
 				placeholder="name@example.com" name="userName"> <label for="floatingInput">User Name</label>
