@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.monocept.model.Account;
+import com.monocept.model.MD5;
 import com.monocept.service.AccountService;
 
 
@@ -29,11 +30,14 @@ public class CreateController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AccountService service = AccountService.getInstance();
 		
-		String userName=request.getParameter("userName");
-		double bal=Double.valueOf(request.getParameter("bal"));
-		String pass=request.getParameter("pass");
+		String userName = request.getParameter("userName");
+		double bal = Double.valueOf(request.getParameter("bal"));
+		String pass = request.getParameter("pass");
 		
-		Account account = new Account(userName,bal,pass);
+		MD5 md = new MD5();
+		String hashedPassword = md.getHashCode(pass);
+		
+		Account account = new Account(userName,bal,hashedPassword);
 		
 		service.addAccount(account);
 		

@@ -102,6 +102,28 @@ public class AccountRepository {
 	    return transactions;
 	}
 	
+	public List<Account> getAccounts() throws SQLException{
+		List<Account> accounts = new ArrayList<>();
+		
+	    Connection conn = null;
+	    conn = connectDB();
+	    
+	    String sql = "select * from accounts";
+	    System.out.println(sql);
+	    PreparedStatement p = conn.prepareStatement(sql);
+	    ResultSet rs = p.executeQuery();
+	    
+	    while (rs.next()) {
+
+            String name = rs.getString("name");
+            double balance = rs.getDouble("balance");
+            String password = rs.getString("password");
+            
+            accounts.add(new Account(name,balance,password));
+	    }
+	    return accounts;
+	}
+	
 	public Account findAccount(String name) throws SQLException {
 		Account account = null;
 	    Connection conn = null;
@@ -123,6 +145,22 @@ public class AccountRepository {
 	    }
 	    
 	    return account;
+	}
+	
+	public void updateBalance(String name, double balance) throws SQLException {
+	    Connection conn = null;
+	    conn = connectDB();
+	    
+	    
+	    String query = "Update accounts SET balance = "+balance+" where name = \""+name+"\"";
+	    
+	    
+	    System.out.println(query);
+	    
+	    PreparedStatement p = conn.prepareStatement(query);
+	    System.out.println("no of rows: "+p.executeUpdate());
+	 
+		conn.close();
 	}
 	
 }

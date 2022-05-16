@@ -14,7 +14,7 @@ public class test {
 		AccountService s = AccountService.getInstance(); 
 		
 		
-		System.out.println(s.findAccount("Rohan"));
+		s.updateBalacne("Rohan", 4000);
 
 //		s.addTransaction(new Transaction("Rohan",208000,"Deposite",Timestamp.from(Instant.now())));
 

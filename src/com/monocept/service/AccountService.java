@@ -52,6 +52,17 @@ public class AccountService {
 		return null;
 	}
 	
+	public List<Account> getAccounts(){
+		AccountRepository repo = AccountRepository.getInstance();
+		
+		try {
+			return repo.getAccounts();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public Account findAccount(String name) {
 		AccountRepository repo = AccountRepository.getInstance();
 		
@@ -61,5 +72,15 @@ public class AccountService {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public void updateBalacne(String name, double balance) {
+		AccountRepository repo = AccountRepository.getInstance();
+		
+		try {
+			repo.updateBalance(name, balance);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

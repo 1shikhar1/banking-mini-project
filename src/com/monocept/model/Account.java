@@ -37,6 +37,8 @@ public class Account {
 		
 		service.addTransaction(new Transaction(name,amount,"Deposite", Timestamp.from(Instant.now())));
 		balance += amount;
+		
+		service.updateBalacne(name, balance);
 	}
 
 	public void withdraw(double amount) {
@@ -44,6 +46,7 @@ public class Account {
 			AccountService service = AccountService.getInstance();
 			service.addTransaction(new Transaction(name, amount, "Withdraw", Timestamp.from(Instant.now())));
 			balance -= amount;
+			service.updateBalacne(name, balance);
 		}
 			
 	}
