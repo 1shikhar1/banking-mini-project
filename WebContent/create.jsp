@@ -11,6 +11,28 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+	
+<script>
+		function validateForm() {
+		if ($("#userName").val() == "") {
+			alert("Please enter name!");
+			return false;
+		}
+		if ($("#userName").val().length < 3) {
+			alert("Name should be atleast three character long!");
+			return false;
+		} else if ($("#bal").val() == "") {
+			alert("Please enter balance!");
+			return false;
+		} else if ($("#bal").val()<500) {
+			alert("Please enter balance atleast 500!");
+			return false;
+		} else if ($("#pass").val() == "") {
+			alert("Please enter password!");
+			return false;
+		}
+	}
+</script>
 
 	<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js">
@@ -55,7 +77,11 @@
 </head>
 <body>
 	<h1 class="display-1">Create Account</h1>
+<<<<<<< HEAD
 	<form  action="create" method="post" style="padding: 5%;">
+=======
+	<form onsubmit="return validateForm()" action="create" method="post" style="padding: 5%;">
+>>>>>>> 45ffb7a701a1b31132969f0b4b206378e37e2646
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="userName"
 				placeholder="name@example.com" name="userName"> <label for="floatingInput">User Name</label>
@@ -74,7 +100,10 @@
 		<br>
 		 <input type="submit" value="Submit">
 	</form>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 45ffb7a701a1b31132969f0b4b206378e37e2646
 </body>
 </html>
